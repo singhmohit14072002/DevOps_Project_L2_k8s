@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-portfolio-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: devops-portfolio
+  template:
+    metadata:
+      labels:
+        app: devops-portfolio
+    spec:
+      containers:
+      - name: devops-portfolio
+        image: 919984817290.dkr.ecr.us-east-1.amazonaws.com/devops-project-l2:latest # This will be updated by the Jenkins pipeline
+        ports:
+        - containerPort: 3000 
